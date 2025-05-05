@@ -32,11 +32,11 @@ function insert_graph(divid, adj, options = {}) {
 
 	var flexible = ifdef(options.flexible,true),
 		rectangle = ifdef(options.rectangle,false),
-		edgeColour = ifdef(options.edgeColour,"blue"),
-		vertexColour = ifdef(options.vertexColour,"red"),
+		edgeColour = ifdef(options.edgeColour,JXG.palette.blue),
+		vertexColour = ifdef(options.vertexColour,JXG.palette.red),
 		scale = ifdef(options.scale,1),
 		vertexSize = ifdef(options.vertexSize,5),
-		edgeSize = ifdef(options.edgeSize,5),
+		edgeSize = ifdef(options.edgeSize,2),
 		showLabels = ifdef(options.showLabels,true),
 		labelPosition = "awayFromOrigin",
 		labelStyle = ifdef(options.labelStyle,"Alph"),
@@ -44,8 +44,8 @@ function insert_graph(divid, adj, options = {}) {
 		labelOffset = rectangle ? 0.2 : 0.3,
 		width = scale*ifdef(options.width,300),
 		height = scale*ifdef(options.height,300),
-		PointStyle = { name:"", face:'o', size:vertexSize, fixed:!flexible, strokeColour:vertexColour, highlight:false, showInfobox:false, },
-		EdgeStyle = { strokeWidth:edgeSize, strokeColor:edgeColour, fixed:true },
+		PointStyle = { name:"", face:'o', size:vertexSize, fixed:!flexible, strokeColour:vertexColour, highlight:false, showInfobox:false },
+		EdgeStyle = { strokeWidth:edgeSize, strokeColor:edgeColour, fixed:true, highlight:false },
 		n = adj.length,
 		coords = [],
 		labels = generateLabels([],n,labelStyle,labelStart),
@@ -73,7 +73,7 @@ function insert_graph(divid, adj, options = {}) {
 		}
 	}
 
-	var board = JXG.JSXGraph.initBoard(divid, { boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}});
+	var board = JXG.JSXGraph.initBoard(divid, { boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 
 	for (var i = 0; i < n; ++i){
 		var ps = {...PointStyle};
