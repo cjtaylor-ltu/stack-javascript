@@ -1,7 +1,7 @@
 function generateLabels(l,n,style,labelOffset) {
 	//pads out l until it has length n, utilising style as necessary.
 	var newlist = [];
-	for (i = 0; i < n; ++i){
+	for (var i = 0; i < n; ++i){
 		var text;
 		if (l[i] !== undefined) { text = l[i]; }
 		else {
@@ -60,7 +60,7 @@ function insert_graph(divid, adj, options = {}) {
 			shift = (bottom_number-1)/2,
 			top_offset = n%2 == 0 ? 0 : 0.5;
 		boundbox = [-shift-0.5,1.25,shift+0.5,-1.25];
-		for (i=0; i < n; i++) {
+		for (var i=0; i < n; i++) {
 			if (i < bottom_number) { coords[i] = [i*r-shift,-0.5]; }
 			else { coords[i] = [(i*r) % bottom_number + top_offset-shift, 0.5]; }
 		}
@@ -68,14 +68,14 @@ function insert_graph(divid, adj, options = {}) {
 	else {
 		var r = 2, //radius of circle
 			angle = Math.PI*2/n;
-		for (i=0; i < n; i++){
+		for (var i=0; i < n; i++){
 			coords[i] = [r*Math.cos(i*angle+Math.PI/2),r*Math.sin(i*angle+Math.PI/2)];
 		}
 	}
 
 	var board = JXG.JSXGraph.initBoard(divid, { boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}});
 
-	for (i = 0; i < n; ++i){
+	for (var i = 0; i < n; ++i){
 		var ps = {...PointStyle};
 		ps.name = labels[i];
 		ps.label = {autoPosition:true,offset:[5,-5],anchorX:'middle',anchorY:'middle'};
@@ -83,8 +83,8 @@ function insert_graph(divid, adj, options = {}) {
 		points[i] = p;
 	}
 
-	for (i=0; i < n; i++){
-		for(j=i+1; j < n; j++){
+	for (var i=0; i < n; i++){
+		for (var j=i+1; j < n; j++){
 			if (adj[i][j] !== 0)
 			{
 				board.create('segment',[points[i],points[j]],EdgeStyle);
