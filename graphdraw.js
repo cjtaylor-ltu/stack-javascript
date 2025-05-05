@@ -1,27 +1,29 @@
 function generateLabels(l,n,style,labelOffset) {
-  //pads out l until it has length n, utilising style as necessary.
-  var newlist = [];
-  for (i = 0; i < n; ++i){
-    var text;
-    if (l[i] !== undefined) { text = l[i]; }
-    else {
-      switch(style){
-        case "Alph": 
-          text = Numbas.util.letterOrdinal(i+labelOffset).toUpperCase();
-          break;
-        case "alph":
-          text = Numbas.util.letterOrdinal(i+labelOffset);
-          break;
-        case "num":
-          text = (i+labelOffset).toString();
-          break;
-        default: 
-          text = "";
-      }
-    }
-    newlist[i] = text;
-  }
-  return newlist;
+	//pads out l until it has length n, utilising style as necessary.
+	var newlist = [];
+	for (i = 0; i < n; ++i){
+		var text;
+		if (l[i] !== undefined) { text = l[i]; }
+		else {
+			var alph = "abcdefghijklmnopqrstuvwxyz",
+				Alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			switch(style){
+				case "Alph": 
+					text = Alph[(i+labelOffset) % 26];
+					break;
+				case "alph":
+					text = alph[(i+labelOffset) % 26];
+					break;
+				case "num":
+					text = (i+labelOffset).toString();
+					break;
+				default: 
+					text = "";
+			}
+		}
+		newlist[i] = text;
+	}
+	return newlist;
 }
 
 function insert_graph(divid, adj, options = {}) {
