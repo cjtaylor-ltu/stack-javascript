@@ -362,7 +362,7 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 
 	for (var i = 0; i < coordinates.length; ++i) {
 		points.push(board.create('point',coordinates[i],pointstyle));
-		board.create('text',[coordinates[i][0]-0.05,coordinates[i][1]+0.05,"\(S_{" + (i+1) + "}\)"],textstyle);
+		board.create('text',[coordinates[i][0]-0.05,coordinates[i][1]+0.05,"\\(S_{" + (i+1) + "}\\)"],textstyle);
 	}
 
 	for (var i of accepting) {
@@ -374,7 +374,7 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 		[coordinates[init-1][0]-r_actual,coordinates[init-1][1]]],linestyle);
 
 	var destinations = [],
-		letters = ["\(A\)","\(B\)","\(C\)","\(D\)","\(E\)","\(F\)","\(G\)","\(H\)","\(I\)","\(J\)"],
+		letters = ["\\(A\\)","\\(B\\)","\\(C\\)","\\(D\\)","\\(E\\)","\\(F\\)","\\(G\\)","\\(H\\)","\\(I\\)","\\(J\\)"],
 	//^surely you won't need more than that!
 		outs = [],
 		ind = 1,
@@ -382,13 +382,13 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 
 	for (var t of transition_table){
 		if (t[0] == t[1]) { 
-			var label = omit.includes(ind) ? letters.shift() : "\(0,1\)";
+			var label = omit.includes(ind) ? letters.shift() : "\\(0,1\\)";
 			outs.push([[t[0]-1,label]]); 
 			destinations.push([t[0]-1]); 
 		}
 		else { 
-			var label0 = "\(0\)";
-			var label1 = "\(1\)";
+			var label0 = "\\(0\\)";
+			var label1 = "\\(1\\)";
 			if (omit.includes(ind)) {
 				var lets = [letters.shift(),letters.shift()];
 				var first = order.shift();
