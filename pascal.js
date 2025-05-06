@@ -16,7 +16,7 @@ function pascal(rows, max) {
 
 	for (var i=0; i<rows.length; ++i) {
 		for (var j = 0; j < rows[i].length; ++j) {
-			board.create('text',[-i+2*j-0.1,-i-1+0.3,"$"+rows[i][j]+"$"],TextStyle);
+			board.create('text',[-i+2*j,-i-1,"\\("+rows[i][j]+"\\)"],TextStyle);
 		}
 	}
 
