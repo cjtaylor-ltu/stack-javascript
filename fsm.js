@@ -198,7 +198,7 @@ function fsm2(transition_table, init, accepting, coordinates) {
 
 	for (var i = 0; i < coordinates.length; ++i){
 		points.push(board.create('point',coordinates[i],pointstyle));
-		board.create('text',[coordinates[i][0]-0.01,coordinates[i][1]+0.03,"\\(S_{" + (i+1) + "}\\)"],textstyle);
+		board.create('text',[coordinates[i][0]-0.01,coordinates[i][1]+0.05,"\\(S_{" + (i+1) + "}\\)"],textstyle);
 	}
 
 	for (var i of accepting) {
