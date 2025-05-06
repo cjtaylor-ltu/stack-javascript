@@ -11,12 +11,12 @@ function labelise(lrpair, nextLabel){
   var left = [], right = [], mylabel = nextLabel;
   nextLabel++;
   if (lrpair[0].length > 0) { 
-    pre_left = labelise(lrpair[0],nextLabel);
+    var pre_left = labelise(lrpair[0],nextLabel);
     nextLabel = pre_left[1];
     left = pre_left[0];
   }
   if (lrpair[1].length > 0) {
-    pre_right = labelise(lrpair[1],nextLabel);
+    var pre_right = labelise(lrpair[1],nextLabel);
     right = pre_right[0];
     nextLabel = pre_right[1];
   }
@@ -131,3 +131,4 @@ function inorder(tree) {
   if (tree._right) { labels = labels.concat(inorder(tree._right)); }
   return labels;
 }
+
