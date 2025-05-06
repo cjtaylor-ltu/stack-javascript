@@ -6,7 +6,7 @@ function pascal(rows, max) {
 	const LineStyle = {fixed:true,strokeColor:"black",highlight:false},
 		TextStyle = {fontsize:14,fixed:true,useMathJax:true,highlight:false,anchorX:'middle',anchorY:'middle',useMathJax:false};
 
-	for (i=0; i < max+1; i++) {
+	for (var i=0; i < max+1; i++) {
 		var p1 = [2*i-max,-max],
 			p2 = [i,-i],
 			p3 = [i-max,i-max];
@@ -14,8 +14,8 @@ function pascal(rows, max) {
 		board.create('segment',[p1,p3],LineStyle);
 	}
 
-	for (i=0; i<rows.length; ++i) {
-		for (j = 0; j < rows[i].length; ++j) {
+	for (var i=0; i<rows.length; ++i) {
+		for (var j = 0; j < rows[i].length; ++j) {
 			board.create('text',[-i+2*j-0.1,-i-1+0.3,"$"+rows[i][j]+"$"],TextStyle);
 		}
 	}
