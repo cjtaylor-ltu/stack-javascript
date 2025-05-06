@@ -30,7 +30,7 @@ function fsm1(transition_table, init, accepting) {
 	var board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
-	var r_actual = 20/(2*500),
+	var r_actual = 20*2/500,
 		num = transition_table.states,
 		points = [];
 
@@ -187,7 +187,7 @@ function fsm2(transition_table, init, accepting) {
 	var board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
-	var r_actual = radius/(4*750),
+	var r_actual = 4*radius/750,
 		num = transition_table.states,
 		points = [];
 
@@ -350,7 +350,7 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 		board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
-	var r_actual = radius/((max_x-min_x+1)*750),
+	var r_actual = (max_x-min_x+1)*radius/750,
 		num = transition_table.states,
 		points = [];
 
