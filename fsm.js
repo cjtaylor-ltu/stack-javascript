@@ -180,9 +180,15 @@ function fsm1(transition_table, init, accepting) {
 	return board;
 }
 
-function fsm2(transition_table, init, accepting) {
-	var coordinates = [[0,0],[1,0],[2,0],[3,0]],
-		boundbox = [-0.5,1,3.5,-1];
+function fsm2(transition_table, init, accepting, coordinates) {
+	var min_x = coordinates[0][0], min_y = coordinates[0][1], max_x = coordinates[0][0], max_y = coordinates[0][1];
+	for (var c of coordinates){
+		min_x = Math.min(min_x,c[0]);
+		max_x = Math.max(max_x,c[0]);
+		min_y = Math.min(min_y,c[1]);
+		max_y = Math.max(max_y,c[1]);
+	}
+	var boundbox = [min_x-0.5,max_y+1,max_x+0.5,min_y-1],
 
 	var board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
@@ -515,4 +521,5 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 	board.unsuspendUpdate()
 	return board
 }
+
 
