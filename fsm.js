@@ -189,8 +189,7 @@ function fsm2(transition_table, init, accepting, coordinates) {
 		max_y = Math.max(max_y,c[1]);
 	}
 	var boundbox = [min_x-0.5,max_y+1,max_x+0.5,min_y-1],
-
-	var board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
+	 board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
 	var r_actual = 4*radius/750,
