@@ -30,7 +30,7 @@ function fsm1(transition_table, init, accepting) {
 	var board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
-	var r_actual = 20/500,
+	var r_actual = 20/(2*500),
 		num = transition_table.states,
 		points = [];
 
@@ -42,9 +42,6 @@ function fsm1(transition_table, init, accepting) {
 	for (var i of accepting) {
 		board.create('point',coordinates[i-1],acceptstyle);
 	}
-
-	var pp = board.create('point',[coordinates[init-1][0]-0.3,coordinates[init-1][1]]);
-	pp.hideElement()
 
 	board.create('arrow',[[coordinates[init-1][0]-3*r_actual,coordinates[init-1][1]],
 		[coordinates[init-1][0]-r_actual,coordinates[init-1][1]]],linestyle)
@@ -190,7 +187,7 @@ function fsm2(transition_table, init, accepting) {
 	var board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
-	var r_actual = radius/750,
+	var r_actual = radius/(4*750),
 		num = transition_table.states,
 		points = [];
 
@@ -202,9 +199,6 @@ function fsm2(transition_table, init, accepting) {
 	for (var i of accepting) {
 		board.create('point',coordinates[i-1],acceptstyle);
 	}
-
-	var pp = board.create('point',[coordinates[init-1][0]-0.3,coordinates[init-1][1]]);
-	pp.hideElement()
 
 	board.create('arrow',[[coordinates[init-1][0]-3*r_actual,coordinates[init-1][1]],
 		[coordinates[init-1][0]-r_actual,coordinates[init-1][1]]],linestyle)
@@ -356,7 +350,7 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 		board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 	board.suspendUpdate();
 
-	var r_actual = radius/750,
+	var r_actual = radius/((max_x-min_x+1)*750),
 		num = transition_table.states,
 		points = [];
 
@@ -368,8 +362,6 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 	for (var i of accepting) {
 		board.create('point',coordinates[i-1],acceptstyle);
 	}
-	var pp = board.create('point',[coordinates[init-1][0]-0.3,coordinates[init-1][1]]);
-	pp.hideElement()
 	board.create('arrow',[[coordinates[init-1][0]-3*r_actual,coordinates[init-1][1]],
 		[coordinates[init-1][0]-r_actual,coordinates[init-1][1]]],linestyle);
 
