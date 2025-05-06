@@ -9,7 +9,7 @@ function pascal(rows, max) {
 	for (i=0; i < max+1; i++) {
 		var p1 = [2*i-max,-max],
 			p2 = [i,-i],
-			p3 = [i-max,i-max],
+			p3 = [i-max,i-max];
 		board.create('segment',[p1,p2],LineStyle);
 		board.create('segment',[p1,p3],LineStyle);
 	}
