@@ -20,9 +20,9 @@ function pascal(rows, max) {
 		}
 	}
 
-	board.create('text',[-1.4,0,"\\(p(n)\\)"],TextStyle);
-	board.create('text',[-2.4,-1,"\\(q(n)\\)"],TextStyle);
-	board.create('text',[0.7,0,"\\(s(n)\\)"],TextStyle);
+	board.create('text',[-1.2,-0.2,"\\(p(n)\\)"],TextStyle);
+	board.create('text',[-2.2,-1.2,"\\(q(n)\\)"],TextStyle);
+	board.create('text',[0.9,-0.2,"\\(s(n)\\)"],TextStyle);
 
 	return board
 }
