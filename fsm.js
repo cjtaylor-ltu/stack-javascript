@@ -69,7 +69,7 @@ function fsm1(transition_table, init, accepting) {
 	}
 
 	for (var i = 0; i < outs.length; ++i) {
-		for (p of outs[i]){
+		for (var p of outs[i]){
 			if (p[0] == i) { 
 				//loop 
 				makeLoop(coordinates[i][0], coordinates[i][1]);
@@ -229,7 +229,7 @@ function fsm2(transition_table, init, accepting) {
 	}
 
 	for (var i = 0; i < outs.length; ++i) {
-		for (p of outs[i]){
+		for (var p of outs[i]){
 			if (p[0] == i) { 
 				//loop 
 				makeLoop(coordinates[i][0], coordinates[i][1]);
@@ -346,7 +346,7 @@ function fsm2(transition_table, init, accepting) {
 
 function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_order) {
 	var min_x = coordinates[0][0], min_y = coordinates[0][1], max_x = coordinates[0][0], max_y = coordinates[0][1];
-	for (c of coordinates){
+	for (var c of coordinates){
 		min_x = Math.min(min_x,c[0]);
 		max_x = Math.max(max_x,c[0]);
 		min_y = Math.min(min_y,c[1]);
@@ -409,7 +409,7 @@ function fsm_omit(transition_table, init, accepting, coordinates, omit, omit_ord
 	}
 
 	for (var i = 0; i < outs.length; ++i){
-		for (p of outs[i]){
+		for (var p of outs[i]){
 			if (p[0] == i) { 
 				//loop 
 				var cx = coordinates[i][0],
