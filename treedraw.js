@@ -27,7 +27,7 @@ function split(l) {
   if (l.length == 0) { return []; }
   else {
     var left = [], right = [];
-    for (x of l) {
+    for (var x of l) {
       if (x.length > 0) {
 	    if (x[0] == "0") { left.push(x.substr(1)); }
 	    else { right.push(x.substr(1)); }
@@ -69,7 +69,7 @@ function draw_tree(divid, tree_template, labs) {
 		boundbox= [-xmax, 2, xmax, ymin],
 		board = JXG.JSXGraph.initBoard(divid, {boundingbox: boundbox, axis: false, showNavigation: false, pan: {enabled:false}, zoom:{enabled:false}, showCopyright:false});
 
-	for (i = 0; i < n; ++i){
+	for (var i = 0; i < n; ++i){
 		labels[i] = i < labs.length ? labs[i] : "";
 	}
 
@@ -77,14 +77,14 @@ function draw_tree(divid, tree_template, labs) {
 		textProperties = { fixed:true, fontsize:14, anchorX:'middle', anchorY:'middle', useMathJax:false, highlight:false, },
 		segmentProperties = { highlight:false, fixed:true, strokeColor:'black' };
 
-	for (i = 0; i < coords.length; ++i) {
+	for (var i = 0; i < coords.length; ++i) {
 		var c = coords[i],
 			l = labels.length > i ? labels[i] : "",
 			tc = [c[0],c[1],l];
 		board.create('point',c,pointProperties);
 		board.create('text',tc,textProperties);
 	}
-	for (e of edges){
+	for (var e of edges) {
 		board.create('segment',e,segmentProperties);
 	}
 	return board;
