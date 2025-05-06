@@ -49,7 +49,7 @@ function fsm1(transition_table, init, accepting) {
 	var destinations = [], outs=[];
 	for (var t of transition_table) {
 		if (t[0] == t[1]) { 
-			outs.push([[t[0]-1,"\\(1\\)"]]); 
+			outs.push([[t[0]-1,"\\(0,1\\)"]]); 
 			destinations.push([t[0]-1]); 
 		}
 		else { 
@@ -206,7 +206,7 @@ function fsm2(transition_table, init, accepting) {
 	var destinations = [], outs=[];
 	for (var t of transition_table) {
 		if (t[0] == t[1]) { 
-			outs.push([[t[0]-1,"\\(1\\)"]]); 
+			outs.push([[t[0]-1,"\\(0,1\\)"]]); 
 			destinations.push([t[0]-1]); 
 		}
 		else { 
