@@ -329,7 +329,7 @@ function fsm2(transition_table, init, accepting, coordinates) {
 						var slope = (y2-y1)/(x2-x1),
 							pre_shift = x1 < x2 ? 0.02 : -0.02;
 						tnose = [tc[0]+pre_shift,tc[1]+pre_shift*slope];
-						tshift = slope > 0 ? [0.05,0] : [0.05,0.05];
+						tshift = slope > 0 ? [0.05,0] : [0.05,0.1];
 					}
 					maketriangle(board, tc,tnose);
 					board.create('segment',[points[i],points[p[0]]],linestyle);
