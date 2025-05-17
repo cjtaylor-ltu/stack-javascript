@@ -75,4 +75,3 @@ function graph(coeffs) {
 	}
 }
 
-graph(coeffs);
