@@ -86,7 +86,7 @@ function graph_prac(coeffs) {
 	board.options.layer['curve'] = 9;
 
 	function gr(c,x) { return c*x*Math.log2(x); }
-	function mf(x) { return 0.025*x*Math.log2(x)+0.025*x+1.8; }
+	function mf(x) { return 2*(0.125*x*Math.log2(x)+0.125*x+9); }
 
 	var fs = [
 		function(x){return gr(coeffs[0],x);}, 
@@ -149,6 +149,6 @@ function graph_prac(coeffs) {
 	var pt = [xmax+xstep/2,mf(xmax)+20,"\\(" + labels[0] + "\\)"]
 	board.create('text',pt,{fixed:true,highlight:false,parse:false,anchorY:'bot'})
 	for (var i = 1; i < labels.length; i++){
-		board.create('text',[xmax+xstep/2,fs[i-1](xmax)+20, labels[i]],{fixed:true,highlight:false,parse:false}) 
+		board.create('text',[xmax+xstep/2,fs[i-1](xmax), labels[i]],{fixed:true,highlight:false,parse:false}) 
 	}
 }
