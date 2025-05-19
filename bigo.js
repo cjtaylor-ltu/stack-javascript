@@ -85,8 +85,8 @@ function graph_prac(coeffs) {
 	board.options.layer['axis'] = 8;
 	board.options.layer['curve'] = 9;
 
-	function gr(c,x) { return c*n*Math.LN2(n); }
-	function mf(x) { return 0.025*n*Math.LN2(n)+0.025*n+1.8; }
+	function gr(c,x) { return c*x*Math.LN2(x); }
+	function mf(x) { return 0.025*x*Math.LN2(x)+0.025*x+1.8; }
 
 	var fs = [
 		function(x){return gr(coeffs[0],x);}, 
