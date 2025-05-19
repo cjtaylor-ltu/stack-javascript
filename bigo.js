@@ -146,7 +146,7 @@ function graph_prac(coeffs) {
 		}
 	);
 
-	var pt = [xmax+xstep/2,mf(xmax)+20,"\\(" + labels[0] + "\\)"]
+	var pt = [xmax+xstep/2,mf(xmax),"\\(" + labels[0] + "\\)"]
 	board.create('text',pt,{fixed:true,highlight:false,parse:false,anchorY:'bot'})
 	for (var i = 1; i < labels.length; i++){
 		board.create('text',[xmax+xstep/2,fs[i-1](xmax), labels[i]],{fixed:true,highlight:false,parse:false}) 
