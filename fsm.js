@@ -151,7 +151,7 @@ function fsm1(transition_table, init, accepting) {
 						shift = x1 > x2 ? -0.1 : 0.1,
 						tc = [co[0],co[1]],
 						xsh = x1 > x2 ? -0.02 : 0.02,
-						tnose = [tc[0]+xsh,tc[1]+xsh*slope];
+						tnose = [tc[0],tc[1]+(y2-y1)];				
 					maketriangle(board, tc,tnose);
 					board.create('text',[co[0]+tshift[0],co[1]+tshift[1],p[1]],textstyle);
 				}
